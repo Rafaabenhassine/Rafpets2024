@@ -18,14 +18,13 @@ connect();
 
 //create PORT
 const PORT = process.env.PORT;
-
-//create server
-app.listen(PORT, (error) => {
-  error ? console.log(error) : console.log(`server is running on PORT ${PORT}`);
-});
-
 //require routes
 app.use("/api/product", require("./Routes/productRoute"));
 app.use("/api/user", require("./Routes/userRoute"));
 // app.use("/api/cart", require("./Routes/CartRoute"));
 // app.use("/api/order", require("./Routes/OrderRoute"));
+
+//run server
+app.listen(PORT, (error) => {
+  error ? console.log(error) : console.log(`server is running on PORT ${PORT}`);
+});
