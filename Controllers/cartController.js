@@ -1,6 +1,6 @@
 // Importation des dépendances
-const Cart = require("../models/cartModel"); // Modèle du panier
-const Product = require("../models/productModel"); // Modèle des produits
+const Cart = require("../Models/cartModel"); // Modèle du panier
+const Product = require("../Models/productModel"); // Modèle des produits
 
 // Ajouter un article au panier
 exports.addToCart = async (req, res) => {
@@ -34,12 +34,10 @@ exports.addToCart = async (req, res) => {
     await cart.save();
     res.status(200).json({ message: "Produit ajouté au panier", cart });
   } catch (err) {
-    res
-      .status(500)
-      .json({
-        message: "Erreur lors de l'ajout au panier",
-        error: err.message,
-      });
+    res.status(500).json({
+      message: "Erreur lors de l'ajout au panier",
+      error: err.message,
+    });
   }
 };
 
@@ -54,12 +52,10 @@ exports.getCart = async (req, res) => {
     }
     res.status(200).json(cart);
   } catch (err) {
-    res
-      .status(500)
-      .json({
-        message: "Erreur lors de la récupération du panier",
-        error: err.message,
-      });
+    res.status(500).json({
+      message: "Erreur lors de la récupération du panier",
+      error: err.message,
+    });
   }
 };
 
@@ -90,12 +86,10 @@ exports.updateCart = async (req, res) => {
     await cart.save();
     res.status(200).json({ message: "Panier mis à jour", cart });
   } catch (err) {
-    res
-      .status(500)
-      .json({
-        message: "Erreur lors de la mise à jour du panier",
-        error: err.message,
-      });
+    res.status(500).json({
+      message: "Erreur lors de la mise à jour du panier",
+      error: err.message,
+    });
   }
 };
 
@@ -116,12 +110,10 @@ exports.removeFromCart = async (req, res) => {
     await cart.save();
     res.status(200).json({ message: "Produit supprimé du panier", cart });
   } catch (err) {
-    res
-      .status(500)
-      .json({
-        message: "Erreur lors de la suppression du produit",
-        error: err.message,
-      });
+    res.status(500).json({
+      message: "Erreur lors de la suppression du produit",
+      error: err.message,
+    });
   }
 };
 

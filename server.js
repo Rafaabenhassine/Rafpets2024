@@ -21,8 +21,8 @@ const PORT = process.env.PORT;
 //require routes
 app.use("/api/product", require("./Routes/productRoute"));
 app.use("/api/user", require("./Routes/userRoute"));
-// app.use("/api/cart", require("./Routes/CartRoute"));
-// app.use("/api/order", require("./Routes/OrderRoute"));
+app.use("/api/cart", require("./Routes/cartRoute"));
+app.use("/api/order", require("./Routes/orderRoute"));
 
 //run server
 app.listen(PORT, (error) => {
